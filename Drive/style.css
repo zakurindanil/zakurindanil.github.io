@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #C80909;
+    transform: scale(1.1);
+}
+
+.nav-links a.active {
+    color: #C80909;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #C80909;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -30px;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.search-bar button:hover {
+    transform: scale(1.2);
+}
+
+/* Бургер-меню */
+.burger-toggle {
+    display: none;
+}
+
+.burger-icon {
+    display: none;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.burger-icon span {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.burger-icon span:nth-child(1) {
+    top: 0;
+}
+
+.burger-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.burger-icon span:nth-child(3) {
+    top: 16px;
+}
+
+.burger-toggle:checked + .burger-icon span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.burger-toggle:checked + .burger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-toggle:checked + .burger-icon span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.startscreen {
+    font-size: 40px;
+    background-image: url('Файлы/Стартовый экран/стартовый экран.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 740px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    animation: fadeIn 1s ease-out;
+}
+
+.startscreen_contain {
+    padding-top: 142px;
+}
+
+.startscreen h1 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 315px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.startscreen .btn {
+    display: inline-block;
+    background-color: grey;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.startscreen .btn:hover {
+    background-color: #C80909;
+    transform: scale(1.05);
+}
+
+.section {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.section-title {
+    font-size: 45px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.advantage {
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.advantage img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.advantage p {
+    font-size: 18px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.service {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.service-img {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.service img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.service-name {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.service-price {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.service-btn {
+    color: #fff;
+    background-color: #C80909;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: center;
+    margin-top: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-btn:hover {
+    background-color: #a00707;
+    transform: scale(1.05);
+}
+
+.form-section {
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: #C80909;
+}
+
+.form-submit {
+    background-color: #C80909;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin: 20px auto 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: #a00707;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #4B4B4B;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-transform: lowercase;
+}
+
+.footer-column p,
+.footer-column a {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #C80909;
+}
+
+.footer-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+}
+
+.contact-info {
+    font-style: normal;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInMenu {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .top-nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .burger-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #333;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        z-index: 999;
+        animation: slideInMenu 0.3s ease-out;
+    }
+
+    .burger-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .search-bar input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .startscreen {
+        width: 100%;
+        height: 500px;
+    }
+
+    .startscreen_contain {
+        padding-top: 100px;
+    }
+
+    .startscreen h1 {
+        font-size: 32px;
+        margin-bottom: 200px;
+    }
+
+    .startscreen .btn {
+        padding: 8px 15px;
+    }
+
+    .section {
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .advantages {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .advantage img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .advantage p {
+        font-size: 16px;
+    }
+
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .service-img {
+        height: 120px;
+    }
+
+    .service-name {
+        font-size: 14px;
+    }
+
+    .service-price {
+        font-size: 14px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-logo {
+        width: 200px;
+    }
+}
+
+@media (max-width: 446px) {
+    .container {
+        padding: 10px;
+    }
+
+    .top-nav {
+        padding: 0 5px;
+    }
+
+    .nav-links {
+        top: 50px;
+        padding: 15px 0;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .search-bar input {
+        max-width: 250px;
+    }
+
+    .startscreen {
+        height: 400px;
+    }
+
+    .startscreen_contain {
+        padding-top: 80px;
+    }
+
+    .startscreen h1 {
+        font-size: 24px;
+        margin-bottom: 150px;
+    }
+
+    .startscreen .btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .section {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .advantage img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .advantage p {
+        font-size: 14px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .service-img {
+        height: 100px;
+    }
+
+    .service-name {
+        font-size: 13px;
+    }
+
+    .service-price {
+        font-size: 13px;
+    }
+
+    .service-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        padding: 8px;
+    }
+
+    .form-submit {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+}
